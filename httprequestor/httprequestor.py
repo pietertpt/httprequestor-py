@@ -99,8 +99,13 @@ class ResponseModel:
         self.status = rsp.status
         self.is_success = self.set_success(rsp.status)
         self.headers = rsp.headers
+
         if rsp.data is not None and rsp.data != b'':
-            self.data = json.loads(rsp.data)
+
+            if 'application/json' in rsp.headers.get('Content-Type'):
+                self.data = json.loads(rsp.data)
+            else:
+                self.data = rsp.data
 
     def __str__(self):
         return f"HttpRequestor->ResponseModel(status={self.status},is_success={self.is_success},data={self.data})"
