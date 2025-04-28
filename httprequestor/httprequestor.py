@@ -51,7 +51,10 @@ class HttpRequestor:
 
     def send_post(self):
 
-        encoded_body = json.dumps(self._body)
+        encoded_body = None
+        if self._body is not None:
+            encoded_body = json.dumps(self._body)
+        
         return ResponseModel(self._http.request(
             'POST',
             self._url + self._path,
@@ -61,7 +64,10 @@ class HttpRequestor:
     
     def send_put(self):
 
-        encoded_body = json.dumps(self._body)
+        encoded_body = None
+        if self._body is not None:
+            encoded_body = json.dumps(self._body)
+        
         return ResponseModel(self._http.request(
             'PUT',
             self._url + self._path,
@@ -71,7 +77,10 @@ class HttpRequestor:
     
     def send_patch(self):
 
-        encoded_body = json.dumps(self._body)
+        encoded_body = None
+        if self._body is not None:
+            encoded_body = json.dumps(self._body)
+        
         return ResponseModel(self._http.request(
             'PATCH',
             self._url + self._path,
