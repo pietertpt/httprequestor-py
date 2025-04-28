@@ -13,7 +13,8 @@ class HttpRequestor:
     _url: str = None
     _path: str = None
     _headers: dict = None
-    _body: dict = None
+    _body: dict  = None
+    _fields: dict = None
     _params: dict = None
     _http = urllib3.PoolManager()
 
@@ -30,6 +31,10 @@ class HttpRequestor:
 
     def set_body(self, body: dict):
         self._body = body
+        return self
+    
+    def set_fields(self, fields):
+        self._fields = fields
         return self
     
     def set_params(self, params: dict):
@@ -51,7 +56,8 @@ class HttpRequestor:
             'POST',
             self._url + self._path,
             headers=self._headers,
-            body=encoded_body))
+            body=encoded_body,
+            fields=self._fields))
     
     def send_put(self):
 
@@ -60,7 +66,8 @@ class HttpRequestor:
             'PUT',
             self._url + self._path,
             headers=self._headers,
-            body=encoded_body))
+            body=encoded_body,
+            fields=self._fields))
     
     def send_patch(self):
 
@@ -69,7 +76,8 @@ class HttpRequestor:
             'PATCH',
             self._url + self._path,
             headers=self._headers,
-            body=encoded_body))
+            body=encoded_body,
+            fields=self._fields))
     
     def send_delete(self):
 
