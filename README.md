@@ -14,7 +14,9 @@ Example coming soon
 ## Releases
 Showing the last 10 releases updates here. Please see `CHANGELOG.md` for all versions and changes
 
-### v0.1.2 - In Progress
+### v0.1.3 - In Progress
+
+### v0.1.2 - 2025-04-28
 - Moved TODO to README.md file
 - Added string for printing the response class value
 - Added fields to body of making a request for fields and forms
