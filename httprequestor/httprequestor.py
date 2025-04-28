@@ -94,6 +94,12 @@ class ResponseModel:
         if rsp.data is not None and rsp.data != b'':
             self.data = json.loads(rsp.data)
 
+    def __str__(self):
+        return f"HttpRequestor->ResponseModel(status={self.status},is_success={self.is_success},data={self.data})"
+    
+    def __repr__(self):
+        return f"HttpRequestor->ResponseModel(status={self.status},is_success={self.is_success},data={self.data})"
+
     def set_success(self, status: int):
         if status >= 200 and status < 300:
             return True
