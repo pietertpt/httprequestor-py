@@ -8,11 +8,6 @@ class HttpRequestor:
     This class is created to help make easy and constant. Making the interchanging of different HTTP libraries easy and only changeable in one place.
 
     The base URL is created to be a constant, with the optiont to change all the other values as the class is used.
-
-    TODO:
-    Add reset function to reset all values when building a new request (Or improved why of doing this).
-    Change body parsing in the model to allow when response does not have a body
-
     """
 
     _url: str = None
